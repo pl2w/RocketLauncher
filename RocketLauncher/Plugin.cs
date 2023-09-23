@@ -14,4 +14,4 @@ namespace RocketLauncher
     {
         Plugin() => new Harmony("pl2w.rocketlauncher").PatchAll(Assembly.GetExecutingAssembly());
     }
-}for ex
+}
