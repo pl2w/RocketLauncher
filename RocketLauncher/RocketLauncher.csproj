@@ -410,7 +410,6 @@
     <Compile Include="Utils\ModdedLobbyCheck.cs" />
     <Compile Include="Utils\PlayerUtils.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\launcher" />
   </ItemGroup>

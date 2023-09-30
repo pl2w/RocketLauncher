@@ -21,10 +21,10 @@ namespace RocketLauncher.Launcher
             prevPos = transform.position;
             speed += PlayerUtils.playerBody.velocity.magnitude;
         }
-  
+   
         void Update()
         {
-            if (!RocketLauncherWeapon.instance.inModded)
+            if (!RocketLauncherWeapon.instance.inModded || !RocketLauncherWeapon.instance.modEnabled)
             {
                 GameObject.Destroy(this.gameObject);
                 return;

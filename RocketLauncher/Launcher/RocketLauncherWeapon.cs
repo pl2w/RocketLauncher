@@ -27,12 +27,24 @@ namespace RocketLauncher.Launcher
             }
             set
             {
-                rocketLauncher.SetActive(value);
+                if(modEnabled) rocketLauncher.SetActive(value);
                 _modded = value;
             }
         }
 
-        bool _modded;
+        bool _modded, _modEnabled;
+        public bool modEnabled
+        {
+            get
+            {
+                return _modded;
+            }
+            set
+            {
+                if(inModded) rocketLauncher.SetActive(value);
+                _modded = value;
+            }
+        }
 
         public void Start()
         {
@@ -61,11 +73,12 @@ namespace RocketLauncher.Launcher
 
             bundle.Unload(false);
             rocketLauncher.SetActive(false);
+            RocketLauncherWeapon.instance._modEnabled = true;
         }
 
         void Update()
         {
-            if(!inModded) return;
+            if(!inModded || !_modEnabled) return;
             if ((ControllerInputPoller.instance.rightGrab && !onceFire) || testFire)
             {
                 onceFire = true;
